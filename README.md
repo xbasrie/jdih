@@ -2,8 +2,6 @@
 
 Aplikasi web yang berfungsi sebagai portal Jaringan Dokumentasi dan Informasi Hukum (JDIH). Dibangun menggunakan **Laravel** dan **Filament**, aplikasi ini menyediakan antarmuka publik yang modern untuk pencarian produk hukum, serta panel admin yang kuat untuk manajemen konten. Desain terinspirasi dari situs JDIH Kemenag.
 
-![Screenshot Halaman Utama](https://i.imgur.com/k98tT7s.png)
-*(**Catatan:** Ganti URL di atas dengan screenshot aplikasi Anda yang sudah jadi)*
 
 ---
 
