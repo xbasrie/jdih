@@ -1,61 +1,103 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# JDIH Lokal - Aplikasi Portal Produk Hukum ⚖️
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web yang berfungsi sebagai portal Jaringan Dokumentasi dan Informasi Hukum (JDIH). Dibangun menggunakan **Laravel** dan **Filament**, aplikasi ini menyediakan antarmuka publik yang modern untuk pencarian produk hukum, serta panel admin yang kuat untuk manajemen konten. Desain terinspirasi dari situs JDIH Kemenag.
 
-## About Laravel
+![Screenshot Halaman Utama](https://i.imgur.com/k98tT7s.png)
+*(**Catatan:** Ganti URL di atas dengan screenshot aplikasi Anda yang sudah jadi)*
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Halaman Publik (Frontend)
+- **Desain Modern**: Tampilan dengan *hero section* yang memiliki gambar latar dan form pencarian terintegrasi.
+- **Pencarian Multifilter**: Pengguna dapat mencari berdasarkan kata kunci dan memfilter hasil berdasarkan **kategori** melalui menu dropdown.
+- **Filter Otomatis**: Dropdown kategori akan langsung memfilter hasil tanpa perlu menekan tombol cari.
+- **Tampilan Hasil Rinci**: Setiap hasil pencarian menampilkan kategori, judul, nomor peraturan, tahun, dan cuplikan konten.
+- **Download Langsung**: Tombol untuk mengunduh dokumen (PDF) yang terlampir pada setiap produk hukum.
+- **Navigasi Jelas**: Navbar dengan link ke halaman "Home" dan "About", lengkap dengan indikator halaman aktif.
+- **Paginasi**: Hasil pencarian secara otomatis dibagi menjadi beberapa halaman.
 
-## Learning Laravel
+### Panel Admin (Backend - Filament)
+- **Dashboard Admin**: Panel admin yang aman, modern, dan fungsional diakses melalui `/admin`.
+- **Manajemen Produk Hukum**: Fitur CRUD (Create, Read, Update, Delete) penuh untuk dokumen hukum.
+- **Manajemen Kategori**: Fitur CRUD penuh untuk kategori dokumen.
+- **Upload File Terintegrasi**: Kemudahan mengunggah file PDF langsung dari form.
+- **Rich Text Editor**: Mengelola deskripsi atau konten produk hukum menggunakan editor WYSIWYG.
+- **Manajemen Relasi**: Kemudahan memilih kategori untuk sebuah produk hukum melalui dropdown yang terhubung langsung ke data kategori.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 🚀 Teknologi yang Digunakan
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Backend**: [Laravel 11](https://laravel.com/)
+- **Admin Panel**: [Filament 3](https://filamentphp.com/)
+- **Frontend**: [Laravel Blade](https://laravel.com/docs/blade) & [Tailwind CSS](https://tailwindcss.com/)
+- **Database**: MySQL / MariaDB
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 🔧 Instalasi & Konfigurasi
 
-### Premium Partners
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di lingkungan lokal Anda.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+1.  **Clone Repositori**
+    ```bash
+    git clone [https://github.com/](https://github.com/)[username-anda]/[nama-repositori].git
+    cd [nama-repositori]
+    ```
 
-## Contributing
+2.  **Install Dependensi**
+    Pastikan Anda memiliki [Composer](https://getcomposer.org/) terinstal.
+    ```bash
+    composer install
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+3.  **Siapkan File Environment (.env)**
+    Salin file `.env.example` menjadi `.env`.
+    ```bash
+    cp .env.example .env
+    ```
 
-## Code of Conduct
+4.  **Generate Kunci Aplikasi**
+    ```bash
+    php artisan key:generate
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5.  **Konfigurasi Database**
+    Buka file `.env` dan atur koneksi ke database lokal Anda.
+    ```env
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=db_hukum
+    DB_USERNAME=root
+    DB_PASSWORD=
+    ```
 
-## Security Vulnerabilities
+6.  **Jalankan Migrasi Database**
+    Perintah ini akan membuat tabel `users`, `produk_hukum`, `kategoris`, dan tabel bawaan Laravel lainnya.
+    ```bash
+    php artisan migrate
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+7.  **Buat Storage Link**
+    Langkah ini **wajib** dilakukan agar file unduhan dapat diakses dari halaman publik.
+    ```bash
+    php artisan storage:link
+    ```
 
-## License
+8.  **Jalankan Server Pengembangan**
+    ```bash
+    php artisan serve
+    ```
+    Aplikasi kini dapat diakses di `http://127.0.0.1:8000`.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## ⚙️ Penggunaan Aplikasi
+
+### Membuat Akun Admin
+Sebelum bisa login, buat akun admin pertama Anda melalui terminal dengan perintah berikut:
+```bash
+php artisan make:filament-user
