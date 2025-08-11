@@ -10,6 +10,8 @@ class ListProdukHukums extends ListRecords
 {
     protected static string $resource = ProdukHukumResource::class;
 
+    protected static ?string $title = 'Produk Hukum';
+
     protected function getHeaderActions(): array
     {
         return [

@@ -24,6 +24,10 @@ class ProdukHukumResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
+    protected static ?string $navigationLabel = 'Produk Hukum';
+
+    protected static ?int $navigationSort = 1; // Menentukan urutan navigasi, jika ada resource lain yang ingin diurutkan
+
     public static function form(Form $form): Form
     {
         return $form

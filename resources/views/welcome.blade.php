@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JDIH KEMENAG SURABAYA</title>
+    <title>SIHKA</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
@@ -13,20 +13,24 @@
     {{-- HERO SECTION DENGAN GAMBAR LATAR --}}
     <header class="relative bg-gray-800 h-[50vh] flex items-center justify-center">
         {{-- Gambar Latar --}}
-        <img src="https://images.pexels.com/photos/209151/pexels-photo-209151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
+        <img src="{{ asset('images/kemenag.jpeg') }}" 
              alt="Latar Belakang Hukum" 
              class="absolute inset-0 w-full h-full object-cover z-0 opacity-30">
         
         {{-- Konten di atas gambar --}}
         <div class="relative z-10 text-center text-white px-4 w-full max-w-4xl">
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-3">JDIH - Jaringan Dokumentasi & Informasi Hukum</h1>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-3">SIHKA - Sistem Informasi Hukum Kementerian Agama Kota Surabaya</h1>
             <p class="text-lg md:text-xl mb-8">Temukan produk hukum dengan cepat dan akurat.</p>
             
             {{-- FORM PENCARIAN DAN FILTER --}}
             <form action="{{ route('home') }}" method="GET" class="bg-white/90 backdrop-blur-sm p-4 rounded-xl shadow-2xl flex flex-col md:flex-row items-center gap-2">
-                <select name="kategori" class="w-full md:w-auto px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-700">
+                <select 
+                    name="kategori"  {{-- <== PASTIKAN INI ADA DAN BERNAMA "kategori" --}}
+                    onchange="this.form.submit()"
+                    class="w-full md:w-auto px-4 py-3 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-gray-700">
+                    
                     <option value="">Semua Kategori</option>
-                    @foreach ($kategori as $kategori)
+                    @foreach ($kategoris as $kategori)
                         <option value="{{ $kategori->id }}" {{ $selectedKategoriId == $kategori->id ? 'selected' : '' }}>
                             {{ $kategori->nama }}
                         </option>

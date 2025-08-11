@@ -3,25 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - JDIH KEMENAG SURABAYA</title>
+    <title>Tentang Kami - Pusat Dokumen Hukum</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Menambahkan sedikit style kustom untuk warna tema */
-        .bg-theme-green { background-color: #28a745; }
-        .text-theme-green { color: #28a745; }
-    </style>
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-50">
 
-    {{-- Memanggil Navbar --}}
     @include('layouts.navbar')
 
+    {{-- HERO SECTION BARU --}}
+    <header class="relative bg-gray-800 h-[50vh] flex items-center justify-center text-center">
+        <img src="{{ asset('images/ptsp.jpeg') }}" 
+             alt="Latar Belakang Abstrak" 
+             class="absolute inset-0 w-full h-full object-cover z-0 opacity-30">
+        
+        <div class="relative z-10 text-white px-4">
+            <h1 class="text-4xl md:text-5xl font-extrabold">Tentang <br>SIHKA - Sistem Informasi Hukum Kementerian Agama Kota Surabaya</h1>
+            <p class="text-lg mt-2">Mengenal lebih jauh tentang misi dan tujuan kami.</p>
+        </div>
+    </header>
+
+    {{-- KONTEN UTAMA HALAMAN ABOUT --}}
+    <main class="container mx-auto px-4 py-12">
     {{-- Konten Halaman About --}}
     <div class="container mx-auto px-4 py-12">
         <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg">
             <h1 class="text-4xl font-bold text-gray-800 mb-4">Tentang Website Ini</h1>
             <p class="text-gray-600 mb-6">
-                Selamat datang di JDIH KEMENAG SURABAYA, sebuah platform yang didedikasikan untuk menyediakan akses mudah dan cepat terhadap berbagai produk hukum yang berlaku di Indonesia.
+                Selamat datang di SIHKA - Sistem Informasi Hukum Kementerian Agama Kota Surabaya, sebuah platform yang didedikasikan untuk menyediakan akses mudah dan cepat terhadap berbagai produk hukum yang berlaku di Indonesia.
             </p>
 
             <div class="border-t pt-6">
@@ -51,6 +59,7 @@
             </div>
         </div>
     </div>
+    </main>
 
 </body>
 </html>

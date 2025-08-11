@@ -10,37 +10,41 @@ use App\Models\ProdukHukum; // <-- Pastikan nama model sudah benar
 
 class PencarianController extends Controller
 {
+// app/Http/Controllers/PencarianController.php
+
     public function index(Request $request)
     {
-        // Ambil input dari form pencarian dan filter kategori
         $query = $request->input('search');
         $selectedKategoriId = $request->input('kategori');
 
-        // Ambil semua kategori untuk ditampilkan sebagai filter
-        $kategori = Kategori::orderBy('nama')->get();
+        $kategoris = Kategori::orderBy('nama')->get();
 
         $results = ProdukHukum::query()
-            // Eager load relasi 'kategori' untuk optimasi
             ->with('kategori')
-            // Terapkan filter berdasarkan keyword pencarian
+            
+            // ---- PERUBAHAN UTAMA ADA DI BLOK INI ----
             ->when($query, function ($q, $query) {
-                return $q->where('tentang', 'like', "%{$query}%")
-                         ->orWhere('nomor_peraturan', 'like', "%{$query}%")
-                         ->orWhere('konten', 'like', "%{$query}%")
-                         ->orWhere('tahun', 'like', "%{$query}%");
+                // Mengelompokkan semua kondisi pencarian teks dalam satu grup
+                return $q->where(function ($subQuery) use ($query) {
+                    $subQuery->where('tentang', 'like', "%{$query}%")
+                            ->orWhere('nomor_peraturan', 'like', "%{$query}%")
+                            ->orWhere('konten', 'like', "%{$query}%")
+                            ->orWhere('tahun', 'like', "%{$query}%");
+                });
             })
-            // Terapkan filter berdasarkan ID kategori yang dipilih
+            // ------------------------------------------
+
             ->when($selectedKategoriId, function ($q, $kategoriId) {
                 return $q->where('kategori_id', $kategoriId);
             })
-            ->latest() // Tampilkan yang terbaru dulu
+            
+            ->latest()
             ->paginate(10);
 
-        // Kirim semua data yang dibutuhkan ke view
         return view('welcome', [
             'results' => $results,
             'query' => $query,
-            'kategori' => $kategori,
+            'kategoris' => $kategoris,
             'selectedKategoriId' => $selectedKategoriId
         ]);
     }
